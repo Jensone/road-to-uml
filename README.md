@@ -2,7 +2,7 @@
 
 # ExpoApp
 
-Un application de recherche, découverte et partage sur les expositions autour de chez soi.
+Une application de recherche, découverte et partage sur les expositions autour de chez soi.
 
 ## Modélisation UML
 
