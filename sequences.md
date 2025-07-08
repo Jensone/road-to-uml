@@ -2,6 +2,8 @@
 
 Représentation des séquences de l'application ExpoApp.
 
+## Les actions des utilisateurs
+
 ```mermaid
 
 sequenceDiagram
@@ -37,6 +39,43 @@ sequenceDiagram
         activate Comment
         Comment-->>+Database: supprimer le commentaire
         Comment-->>-User: connfirmaion de la suppression
+    end
+
+```
+
+## Les actions de l'admin
+
+```mermaid
+
+sequenceDiagram
+    actor Admin
+    participant Expo
+    participant Database
+
+    rect rgb(255,240,240) 
+        Admin->>+Expo: Création d'une exposition
+        activate Expo
+        Expo-->>+Database: enregistre l'exposition
+        Expo-->>-Admin: redirige vers la page de l'exposition
+    end
+
+    rect rgb(180,245,220) 
+        Admin->>+Expo: Modification d'une exposition
+        activate Expo
+        Expo-->>+Database: enregistre la modification
+        Expo-->>-Admin: redirige vers la page de l'exposition
+    end
+
+    rect rgb(240,255,245) 
+        Admin->>+Expo: Suppression d'une exposition
+        activate Expo
+        Expo-->>+Admin: demande confirmation de la suppression
+        alt Confirmation
+            Expo-->>+Database: supprime l'exposition
+            Expo-->>-Admin: redirige vers la page de l'exposition
+        else Annulation
+            Expo-->>-Admin: Redirection vers la page de l'exposition
+        end
     end
 
 ```

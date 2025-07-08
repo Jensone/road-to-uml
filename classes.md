@@ -24,8 +24,8 @@ classDiagram
         -String description
         -String location
         -String author
-        -String price
-        -Boolean private
+        -Decimal price
+        -Boolean published
         -DateTime createdAt
         -DateTime updatedAt
         -Category category
